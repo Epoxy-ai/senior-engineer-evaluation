@@ -68,12 +68,12 @@ describe('microservice', () => {
 
   describe('handler', function (this: any) {
 
-    test('should pull BetOffer messages from the input queue', async function (this: any) {
+    test('should pull BetOffer messages from the source queue', async function (this: any) {
       await handler()
       expect(this.sqsMock).toHaveReceivedCommandWith(ReceiveMessageCommand, { QueueUrl: 'https://epoxy.ai/sourcequeue' })
     })
 
-    test('should request the supported leagues info from leagues API', async () => {
+    test('should request the leagues-info from sports API', async () => {
       await handler()
       expect(mockedAxios.get.mock.calls.some((args: any) => args[0].match(/league-info/))).toBe(true)
     })
@@ -88,13 +88,13 @@ describe('microservice', () => {
       expect(mockedAxios.get.mock.calls.some((args: any) => args[0].match(/team-info\/[0-9]+/))).toBe(true)
     })
 
-    test('should publish the modified BetOffer messages to an output queue as a batch publish', async function (this: any) {
+    test('should publish the augmented BetOffer messages to the destination queue in the minimum number of batches', async function (this: any) {
       await handler()
       expect(this.sqsMock).toHaveReceivedCommandWith(SendMessageBatchCommand, { QueueUrl: 'https://epoxy.ai/destinationqueue' })
       expect(this.sqsMock).toHaveReceivedCommandTimes(SendMessageBatchCommand, 2)
     })
 
-    test('should return the expected data', async () => {
+    test('should return the expected output for augmented BetOffer messages', async () => {
       const results = await handler()
       expect(results).toEqual(expectedOutput)
     })
