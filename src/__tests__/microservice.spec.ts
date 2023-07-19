@@ -84,7 +84,7 @@ describe('microservice', () => {
 
     test('should publish the modified BetOffer messages to an output queue as a batch publish', async function (this: any) {
       await handler()
-      expect(this.sqsMock).toHaveReceivedCommand(SendMessageBatchCommand)
+      expect(this.sqsMock).toHaveReceivedCommandTimes(SendMessageBatchCommand, 1)
     })
 
     test('should return the expected data', async () => {
