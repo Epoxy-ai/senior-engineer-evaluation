@@ -1,0 +1,198 @@
+[
+  {
+    "id": 8001,
+    "type": "Over/Under",
+    "sport": "Soccer",
+    "leagueName": "Premiere League",
+    "leagueId": 1211,
+    "criterion": "Will the total score in the match be over or under 3.5?",
+    "outcomes": [
+      {
+        "label": "Over"
+      },
+      {
+        "label": "Under"
+      }
+    ]
+  },
+  {
+    "id": 8002,
+    "type": "Match",
+    "sport": "Football",
+    "leagueName": "NFL",
+    "leagueId": 1102,
+    "criterion": "Which team will win the game?",
+    "outcomes": [
+      {
+        "label": "New England Patriots",
+        "participantType": "team",
+        "participantId": 7206,
+        "participantInfo": {
+          "id": 7206,
+          "name": "New England Patriots",
+          "leagueName": "NFL",
+          "wins": 8,
+          "draws": 0,
+          "losses": 9
+        }
+      },
+      {
+        "label": "Philadelphia Eagles",
+        "participantType": "team",
+        "participantId": 7207,
+        "participantInfo": {
+          "id": 7207,
+          "name": "Philadelphia Eagles",
+          "leagueName": "NFL",
+          "wins": 14,
+          "draws": 0,
+          "losses": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": 8004,
+    "type": "Player Occurrence",
+    "sport": "Football",
+    "leagueName": "NCAAFB",
+    "leagueId": 1101,
+    "criterion": "Will Sam Hartman throw a touchdown pass in the first quarter?",
+    "outcomes": [
+      {
+        "label": "Yes",
+        "participantType": "player",
+        "participantId": 7100,
+        "participantInfo": {
+          "id": 7100,
+          "name": "Sam Hartman",
+          "leagueName": "NCAAFB",
+          "td": 38,
+          "int": 12,
+          "qbr": 76.2
+        }
+      },
+      {
+        "label": "No",
+        "participantType": "player",
+        "participantId": 7100,
+        "participantInfo": {
+          "id": 7100,
+          "name": "Sam Hartman",
+          "leagueName": "NCAAFB",
+          "td": 38,
+          "int": 12,
+          "qbr": 76.2
+        }
+      }
+    ]
+  },
+  {
+    "id": 8005,
+    "type": "Player Occurrence",
+    "sport": "Football",
+    "leagueName": "NFL",
+    "leagueId": 1102,
+    "criterion": "Which runningback will have more yards this weekend?",
+    "outcomes": [
+      {
+        "label": "Nick Chubb",
+        "participantType": "player",
+        "participantId": 7101,
+        "participantInfo": {
+          "id": 7101,
+          "name": "Nick Chubb",
+          "leagueName": "NFL",
+          "yards": 1525,
+          "td": 12,
+          "avg": 5.1
+        }
+      },
+      {
+        "label": "Derrick Henry",
+        "participantType": "player",
+        "participantId": 7102,
+        "participantInfo": {
+          "id": 7102,
+          "name": "Derrick Henry",
+          "leagueName": "NFL",
+          "yards": 1538,
+          "td": 13,
+          "avg": 4.4
+        }
+      }
+    ]
+  },
+  {
+    "id": 8006,
+    "type": "Match",
+    "sport": "Soccer",
+    "leagueName": "Bundesliga",
+    "leagueId": 1221,
+    "criterion": "Which team will win the match?",
+    "outcomes": [
+      {
+        "label": "Borussia Dortmund",
+        "participantType": "team",
+        "participantId": 7202,
+        "participantInfo": {
+          "id": 7202,
+          "name": "Borussia Dortmund",
+          "leagueName": "Bundesliga",
+          "wins": 22,
+          "draws": 5,
+          "losses": 7
+        }
+      },
+      {
+        "label": "F.C. Bayern Munich",
+        "participantType": "team",
+        "participantId": 7203,
+        "participantInfo": {
+          "id": 7203,
+          "name": "F.C. Bayern Munich",
+          "leagueName": "Bundesliga",
+          "wins": 21,
+          "draws": 8,
+          "losses": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": 8008,
+    "type": "FullTime/HalfTime",
+    "sport": "Soccer",
+    "leagueName": "League One",
+    "leagueId": 1212,
+    "criterion": "Which team will be leading at the half?",
+    "outcomes": [
+      {
+        "label": "Derby County F.C.",
+        "participantType": "team",
+        "participantId": 7204,
+        "participantInfo": {
+          "id": 7204,
+          "name": "Derby County F.C.",
+          "leagueName": "League One",
+          "wins": 21,
+          "draws": 13,
+          "losses": 12
+        }
+      },
+      {
+        "label": "Luton Town F.C.",
+        "participantType": "team",
+        "participantId": 7205,
+        "participantInfo": {
+          "id": 7205,
+          "name": "Luton Town F.C.",
+          "leagueName": "League One",
+          "wins": 20,
+          "draws": 9,
+          "losses": 17
+        }
+      }
+    ]
+  }
+]

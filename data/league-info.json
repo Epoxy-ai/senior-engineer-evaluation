@@ -1,0 +1,51 @@
+{
+  "group": {
+    "id": 1,
+    "groups": [
+      {
+        "id": 1100,
+        "name": "Football",
+        "groups": [
+          {
+            "id": 1101,
+            "name": "NCAAFB"
+          },
+          {
+            "id": 1102,
+            "name": "NFL"
+          }
+        ]
+      },
+      {
+        "id": 1200,
+        "name": "Soccer",
+        "groups": [
+          {
+            "id": 1210,
+            "name": "England",
+            "groups": [
+              {
+                "id": 1211,
+                "name": "Premier League"
+              },
+              {
+                "id": 1212,
+                "name": "League One"
+              }
+            ]
+          },
+          {
+            "id": 1220,
+            "name": "Germany",
+            "groups": [
+              {
+                "id": 1221,
+                "name": "Bundesliga"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

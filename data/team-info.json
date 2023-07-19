@@ -1,0 +1,66 @@
+[
+  {
+    "id": 7200,
+    "name": "Inter Milan",
+    "leagueName": "Serie A",
+    "wins": 23,
+    "draws": 3,
+    "losses": 12
+  },
+  {
+    "id": 7201,
+    "name": "Juventus F.C.",
+    "leagueName": "Serie A",
+    "wins": 22,
+    "draws": 6,
+    "losses": 10
+  },
+  {
+    "id": 7202,
+    "name": "Borussia Dortmund",
+    "leagueName": "Bundesliga",
+    "wins": 22,
+    "draws": 5,
+    "losses": 7
+  },
+  {
+    "id": 7203,
+    "name": "F.C. Bayern Munich",
+    "leagueName": "Bundesliga",
+    "wins": 21,
+    "draws": 8,
+    "losses": 5
+  },
+  {
+    "id": 7204,
+    "name": "Derby County F.C.",
+    "leagueName": "League One",
+    "wins": 21,
+    "draws": 13,
+    "losses": 12
+  },
+  {
+    "id": 7205,
+    "name": "Luton Town F.C.",
+    "leagueName": "League One",
+    "wins": 20,
+    "draws": 9,
+    "losses": 17
+  },
+  {
+    "id": 7206,
+    "name": "New England Patriots",
+    "leagueName": "NFL",
+    "wins": 8,
+    "draws": 0,
+    "losses": 9
+  },
+  {
+    "id": 7207,
+    "name": "Philadelphia Eagles",
+    "leagueName": "NFL",
+    "wins": 14,
+    "draws": 0,
+    "losses": 3
+  }
+]

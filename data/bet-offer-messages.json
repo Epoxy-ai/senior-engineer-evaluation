@@ -1,0 +1,158 @@
+[
+  {
+    "id": 8001,
+    "type": "Over/Under",
+    "sport": "Soccer",
+    "leagueName": "Premiere League",
+    "leagueId": 1211,
+    "criterion": "Will the total score in the match be over or under 3.5?",
+    "outcomes": [
+      {
+        "label": "Over"
+      },
+      {
+        "label": "Under"
+      }
+    ]
+  },
+  {
+    "id": 8002,
+    "type": "Match",
+    "sport": "Football",
+    "leagueName": "NFL",
+    "leagueId": 1102,
+    "criterion": "Which team will win the game?",
+    "outcomes": [
+      {
+        "label": "New England Patriots",
+        "participantType": "team",
+        "participantId": 7206
+      },
+      {
+        "label": "Philadelphia Eagles",
+        "participantType": "team",
+        "participantId": 7207
+      }
+    ]
+  },
+  {
+    "id": 8003,
+    "type": "Match",
+    "sport": "Soccer",
+    "leagueName": "Serie A",
+    "leagueId": 9001,
+    "criterion": "Which team will win the match?",
+    "outcomes": [
+      {
+        "label": "Inter Milan",
+        "participantType": "team",
+        "participantId": 7200
+      },
+      {
+        "label": "Juventus F.C.",
+        "participantType": "team",
+        "participantId": 7201
+      }
+    ]
+  },
+  {
+    "id": 8004,
+    "type": "Player Occurrence",
+    "sport": "Football",
+    "leagueName": "NCAAFB",
+    "leagueId": 1101,
+    "criterion": "Will Sam Hartman throw a touchdown pass in the first quarter?",
+    "outcomes": [
+      {
+        "label": "Yes",
+        "participantType": "player",
+        "participantId": 7100
+      },
+      {
+        "label": "No",
+        "participantType": "player",
+        "participantId": 7100
+      }
+    ]
+  },
+  {
+    "id": 8005,
+    "type": "Player Occurrence",
+    "sport": "Football",
+    "leagueName": "NFL",
+    "leagueId": 1102,
+    "criterion": "Which runningback will have more yards this weekend?",
+    "outcomes": [
+      {
+        "label": "Nick Chubb",
+        "participantType": "player",
+        "participantId": 7101
+      },
+      {
+        "label": "Derrick Henry",
+        "participantType": "player",
+        "participantId": 7102
+      }
+    ]
+  },
+  {
+    "id": 8006,
+    "type": "Match",
+    "sport": "Soccer",
+    "leagueName": "Bundesliga",
+    "leagueId": 1221,
+    "criterion": "Which team will win the match?",
+    "outcomes": [
+      {
+        "label": "Borussia Dortmund",
+        "participantType": "team",
+        "participantId": 7202
+      },
+      {
+        "label": "F.C. Bayern Munich",
+        "participantType": "team",
+        "participantId": 7203
+      }
+    ]
+  },
+  {
+    "id": 8007,
+    "type": "Player Occurrence",
+    "sport": "Baseball",
+    "leagueName": "MLB",
+    "leagueId": 9002,
+    "criterion": "Will Andrew Belatti pitch a no-hitter this game?",
+    "outcomes": [
+      {
+        "label": "Yes",
+        "participantType": "player",
+        "participantId": 7103
+      },
+      {
+        "label": "No",
+        "participantType": "player",
+        "participantId": 7103
+      }
+    ]
+  },
+  {
+    "id": 8008,
+    "type": "FullTime/HalfTime",
+    "sport": "Soccer",
+    "leagueName": "League One",
+    "leagueId": 1212,
+    "criterion": "Which team will be leading at the half?",
+    "outcomes": [
+      {
+        "label": "Derby County F.C.",
+        "participantType": "team",
+        "participantId": 7204
+      },
+      {
+        "label": "Luton Town F.C.",
+        "participantType": "team",
+        "participantId": 7205
+      }
+    ]
+  }
+]
