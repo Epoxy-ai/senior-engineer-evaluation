@@ -1,4 +1,4 @@
-import { ReceiveMessageCommandInput, ReceiveMessageCommandOutput } from '@aws-sdk/client-sqs'
+import { OverLimit, ReceiveMessageCommandInput, ReceiveMessageCommandOutput } from '@aws-sdk/client-sqs'
 import { createHash } from 'crypto'
 
 import leagueInfo from '../data/league-info.json'
@@ -12,7 +12,10 @@ export const md5Hash = (str: string) => createHash('md5').update(str).digest("he
 export const getSqsMessages = (messages: typeof betOffersRaw) => {
   let storedMessages = messages
   return async (input: Partial<ReceiveMessageCommandInput>): Promise<Partial<ReceiveMessageCommandOutput>> => {
-    const maxNumberOfMessages = (input.MaxNumberOfMessages || 1) > 10 ? 10 : (input.MaxNumberOfMessages || 1)
+    if (input.MaxNumberOfMessages && input.MaxNumberOfMessages > 10) {
+      throw new OverLimit({ $metadata: {}, message: 'ReceiveMessageCommand: The maximum number of messages to receive at once is 10.'})
+    }
+    const maxNumberOfMessages = input.MaxNumberOfMessages || 1
     const messages = storedMessages.slice(0, maxNumberOfMessages)
     storedMessages = storedMessages.slice(maxNumberOfMessages)
 
