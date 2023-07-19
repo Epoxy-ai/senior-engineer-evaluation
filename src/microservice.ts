@@ -7,7 +7,7 @@ const sqs = new SQSClient({})
 async function recurse (receivedMessages: BetOffer[]): Promise<BetOffer[]> {
   const receiveMessageCommand = new ReceiveMessageCommand({
     QueueUrl: 'https://epoxy.ai/sourcequeue',
-    MaxNumberOfMessages: 2
+    MaxNumberOfMessages: 10
   })
 
   const received = await sqs.send(receiveMessageCommand)
@@ -76,11 +76,18 @@ export const handler = async () => {
   }))
 
   // publish all messages as a batch
-  const sendMessageCommand = new SendMessageBatchCommand({
-    QueueUrl: 'https://epoxy.ai/destinationqueue',
-    Entries: augmentedMessages.map((message, idx) => ({ Id: String(idx), MessageBody: JSON.stringify(message) }))
-  })
-  await sqs.send(sendMessageCommand)
+  await Promise.all(augmentedMessages.reduce((a, c, idx) => {
+    const resultIdx = Math.floor(idx / 10)
+    a[resultIdx] = a[resultIdx] || []
+    a[resultIdx].push(c)
+    return a
+  }, [] as BetOffer[][]).map(async (messages: BetOffer[]) => {
+    const sendMessageCommand = new SendMessageBatchCommand({
+      QueueUrl: 'https://epoxy.ai/destinationqueue',
+      Entries: messages.map((message, idx) => ({ Id: String(idx), MessageBody: JSON.stringify(message) }))
+    })
+    return await sqs.send(sendMessageCommand)
+  }))
 
   // return the modified messages
   return augmentedMessages
