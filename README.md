@@ -54,6 +54,7 @@ This data is the expected output shape and is used for assertions in the unit te
 
 * You can complete the steps in any order.
 * If you add new functions to `microservice.ts` they should be unit tested if time permits.
+* Strong types are encouraged.
 * Studying the test mocks will reveal how to achieve some of the steps, but you are encouraged to use other resources in order to demonstrate your problem-solving ability.
 * If you have read this far, please say "chicken sandwich" out loud.
 * 100% completion is less important that your _approach_ and _process_. We want to hear and see you work through a challenging problem rather than see all unit tests pass.
