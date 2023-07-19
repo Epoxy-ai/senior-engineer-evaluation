@@ -43,19 +43,22 @@ const getGroupIds = (leagueInfo: Group): any => {
 }
 
 const getParticipantInfo = async (filteredBetOffers: BetOffer[]) => {
-  return Promise.all(filteredBetOffers.map(async (betOffer: BetOffer) => {
-      const augmentedOutcomes = Promise.all(betOffer.outcomes.map(async (outcome: Outcome) => {
+  return await Promise.all(filteredBetOffers.map(async (betOffer: BetOffer) => {
+      const augmentedOutcomes = await Promise.all(betOffer.outcomes.map(async (outcome: Outcome) => {
         if (outcome.participantType && outcome.participantId) {
           outcome.participantInfo = (await axios.get(`https://sports.com/${outcome.participantType}-info/${outcome.participantId}`)).data
           return outcome
         } else return outcome
       }))
-      return {...filteredBetOffers, augmentedOutcomes}
+      return {...betOffer, outcomes: augmentedOutcomes}
   }))
 }
 
-const formatMessageForSqs = (messages: any) => {
-
+const formatMessageForSqs = (messages: BetOffer[]) => {
+  return messages.map((message: BetOffer) => ({
+    Id: String(message.id),
+    MessageBody: JSON.stringify(message)
+}))
 }
 
 const publishMessageToSqs = async (messages: SendMessageBatchCommandInput['Entries']) => {
@@ -74,5 +77,6 @@ export const handler = async () => {
   const filteredBetOffers = parsedBetOffers?.filter((betOffer) => leagueIds.includes(betOffer.leagueId))
   const augmentedMessages = await getParticipantInfo(filteredBetOffers)
   // format message for batch publishing, then publish to SQS
+  publishMessageToSqs(formatMessageForSqs(augmentedMessages))
   return augmentedMessages
 }
