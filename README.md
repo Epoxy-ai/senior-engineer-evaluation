@@ -19,7 +19,7 @@ The purpose is to evaluate your skills in Node.js, Typescript, problem solving, 
 
 Your task is to implement a microservice that will run in AWS Lambda. The microservice's job is to pull `BetOffer` messages from a source SQS Queue, filter and augment the `BetOffer` messages with data fetched from a Sports data API, and finally publish the augmented `BetOffer` messages to a destination SQS Queue. In an AWS Lambda function the entry point for execution is the exported `handler` function. To simulate lambda functionality your microservice's `handler` function is invoked from a set of unit tests that create mock SQS Queues and mock Data APIs. Here are the tasks you will need to complete:
 
-1. Pull all available `BetOffer` messages from the source SQS Queue, located at `https://epoxy.ai/sourcequeue`.
+1. Pull all available `BetOffer` messages from the source SQS Queue, located at `https://epoxy.ai/sourcequeue`. Your implementation must ensure there are no remaining messages on the queue.
 2. Filter the incoming `BetOffer` messages down to only leagues are that represented in the `league-info` data. This data can be fetched from `https://sports.com/league-info`. Please use the `axios` library for fetching.
 4. For all `BetOffer` messages that contain `outcomes` with `participantType: "team"`, fetch the team info data from `https://sports.com/team-info/{id}`. Attach this data to the outcome object on the field `participantInfo`. Please use the `axios` library for fetching.
 4. For all `BetOffer` messages that contain `outcomes` with `participantType: "player"`, fetch the player info data from `https://sports.com/player-info/{id}`. Attach this data to the outcome object on the field `participantInfo`. Please use the `axios` library for fetching.
