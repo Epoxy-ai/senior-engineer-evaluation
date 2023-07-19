@@ -23,7 +23,7 @@ Your task is to implement a microservice that will run in AWS Lambda. The micros
 2. Filter the incoming `BetOffer` messages down to only leagues are that represented in the `league-info` data. This data can be fetched from `https://sports.com/league-info`. Please use the `axios` library for fetching.
 4. For all `BetOffer` messages that contain `outcomes` with `participantType: "team"`, fetch the team info data from `https://sports.com/team-info/{id}`. Attach this data to the outcome object on the field `participantInfo`. Please use the `axios` library for fetching.
 4. For all `BetOffer` messages that contain `outcomes` with `participantType: "player"`, fetch the player info data from `https://sports.com/player-info/{id}`. Attach this data to the outcome object on the field `participantInfo`. Please use the `axios` library for fetching.
-5. Publish the augmented `BetOffer` messages to the destination SQS Queue using a batch publish operation. The destination queue is located at `https://epoxy.ai/destinationqueue`. The ordering of the published messages should match the order in which they were received.
+5. Publish the augmented `BetOffer` messages to the destination SQS Queue using the minimum number of batch publishing operations. The destination queue is located at `https://epoxy.ai/destinationqueue`. The ordering of the published messages should match the order in which they were received.
 6. Return the array of augmented `BetOffer` messages.
 
 ## Data You'll Encounter

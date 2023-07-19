@@ -30,5 +30,11 @@
     "era": 5.14,
     "k": 14,
     "whip": 1.50
+  },
+  {
+    "id": 7104,
+    "name": "Manuel Neuer",
+    "leagueName": "Bundesliga",
+    "savesPct": 0.84
   }
 ]

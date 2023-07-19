@@ -91,7 +91,7 @@ describe('microservice', () => {
     test('should publish the modified BetOffer messages to an output queue as a batch publish', async function (this: any) {
       await handler()
       expect(this.sqsMock).toHaveReceivedCommandWith(SendMessageBatchCommand, { QueueUrl: 'https://epoxy.ai/destinationqueue' })
-      expect(this.sqsMock).toHaveReceivedCommandTimes(SendMessageBatchCommand, 1)
+      expect(this.sqsMock).toHaveReceivedCommandTimes(SendMessageBatchCommand, 2)
     })
 
     test('should return the expected data', async () => {

@@ -194,5 +194,161 @@
         }
       }
     ]
+  },
+  {
+    "id": 8009,
+    "type": "Player Occurrence",
+    "sport": "Football",
+    "leagueName": "NFL",
+    "leagueId": 1102,
+    "criterion": "Will Nick Chubb beat his average yards this game?",
+    "outcomes": [
+      {
+        "label": "Yes",
+        "participantType": "player",
+        "participantId": 7101,
+        "participantInfo": {
+          "id": 7101,
+          "name": "Nick Chubb",
+          "leagueName": "NFL",
+          "yards": 1525,
+          "td": 12,
+          "avg": 5.1
+        }
+      },
+      {
+        "label": "No",
+        "participantType": "player",
+        "participantId": 7101,
+        "participantInfo": {
+          "id": 7101,
+          "name": "Nick Chubb",
+          "leagueName": "NFL",
+          "yards": 1525,
+          "td": 12,
+          "avg": 5.1
+        }
+      }
+    ]
+  },
+  {
+    "id": 8010,
+    "type": "Team Occurrence",
+    "sport": "Soccer",
+    "leagueName": "League One",
+    "leagueId": 1212,
+    "criterion": "Will Derby County F.C. win more goals than their last game?",
+    "outcomes": [
+      {
+        "label": "Yes",
+        "participantType": "team",
+        "participantId": 7204,
+        "participantInfo": {
+          "id": 7204,
+          "name": "Derby County F.C.",
+          "leagueName": "League One",
+          "wins": 21,
+          "draws": 13,
+          "losses": 12
+        }
+      },
+      {
+        "label": "No",
+        "participantType": "team",
+        "participantId": 7204,
+        "participantInfo": {
+          "id": 7204,
+          "name": "Derby County F.C.",
+          "leagueName": "League One",
+          "wins": 21,
+          "draws": 13,
+          "losses": 12
+        }
+      }
+    ]
+  },
+  {
+    "id": 8011,
+    "type": "Match",
+    "sport": "Football",
+    "leagueName": "NFL",
+    "leagueId": 1102,
+    "criterion": "Which team will win the game?",
+    "outcomes": [
+      {
+        "label": "New England Patriots",
+        "participantType": "team",
+        "participantId": 7206,
+        "participantInfo": {
+          "id": 7206,
+          "name": "New England Patriots",
+          "leagueName": "NFL",
+          "wins": 8,
+          "draws": 0,
+          "losses": 9
+        }
+      },
+      {
+        "label": "Denver Broncos",
+        "participantType": "team",
+        "participantId": 7208,
+        "participantInfo": {
+          "id": 7208,
+          "name": "Denver Broncos",
+          "leagueName": "NFL",
+          "wins": 6,
+          "draws": 0,
+          "losses": 11
+        }
+      }
+    ]
+  },
+  {
+    "id": 8012,
+    "type": "Player Occurrence",
+    "sport": "Soccer",
+    "leagueName": "Bundesliga",
+    "leagueId": 1221,
+    "criterion": "Will Manuel Neuer save two goals in the first half?",
+    "outcomes": [
+      {
+        "label": "Yes",
+        "participantType": "player",
+        "participantId": 7104,
+        "participantInfo": {
+          "id": 7104,
+          "name": "Manuel Neuer",
+          "leagueName": "Bundesliga",
+          "savesPct": 0.84
+        }
+      },
+      {
+        "label": "No",
+        "participantType": "player",
+        "participantId": 7104,
+        "participantInfo": {
+          "id": 7104,
+          "name": "Manuel Neuer",
+          "leagueName": "Bundesliga",
+          "savesPct": 0.84
+        }
+      }
+    ]
+  },
+  {
+    "id": 8013,
+    "type": "Over/Under",
+    "sport": "Soccer",
+    "leagueName": "Premiere League",
+    "leagueId": 1211,
+    "criterion": "Will the total score in the match be over or under 2.5?",
+    "outcomes": [
+      {
+        "label": "Over"
+      },
+      {
+        "label": "Under"
+      }
+    ]
   }
 ]

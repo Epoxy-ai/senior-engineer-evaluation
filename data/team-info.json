@@ -62,5 +62,13 @@
     "wins": 14,
     "draws": 0,
     "losses": 3
+  },
+  {
+    "id": 7208,
+    "name": "Denver Broncos",
+    "leagueName": "NFL",
+    "wins": 6,
+    "draws": 0,
+    "losses": 11
   }
 ]

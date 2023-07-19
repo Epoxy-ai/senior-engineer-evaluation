@@ -154,5 +154,101 @@
         "participantId": 7205
       }
     ]
+  },
+  {
+    "id": 8009,
+    "type": "Player Occurrence",
+    "sport": "Football",
+    "leagueName": "NFL",
+    "leagueId": 1102,
+    "criterion": "Will Nick Chubb beat his average yards this game?",
+    "outcomes": [
+      {
+        "label": "Yes",
+        "participantType": "player",
+        "participantId": 7101
+      },
+      {
+        "label": "No",
+        "participantType": "player",
+        "participantId": 7101
+      }
+    ]
+  },
+  {
+    "id": 8010,
+    "type": "Team Occurrence",
+    "sport": "Soccer",
+    "leagueName": "League One",
+    "leagueId": 1212,
+    "criterion": "Will Derby County F.C. win more goals than their last game?",
+    "outcomes": [
+      {
+        "label": "Yes",
+        "participantType": "team",
+        "participantId": 7204
+      },
+      {
+        "label": "No",
+        "participantType": "team",
+        "participantId": 7204
+      }
+    ]
+  },
+  {
+    "id": 8011,
+    "type": "Match",
+    "sport": "Football",
+    "leagueName": "NFL",
+    "leagueId": 1102,
+    "criterion": "Which team will win the game?",
+    "outcomes": [
+      {
+        "label": "New England Patriots",
+        "participantType": "team",
+        "participantId": 7206
+      },
+      {
+        "label": "Denver Broncos",
+        "participantType": "team",
+        "participantId": 7208
+      }
+    ]
+  },
+  {
+    "id": 8012,
+    "type": "Player Occurrence",
+    "sport": "Soccer",
+    "leagueName": "Bundesliga",
+    "leagueId": 1221,
+    "criterion": "Will Manuel Neuer save two goals in the first half?",
+    "outcomes": [
+      {
+        "label": "Yes",
+        "participantType": "player",
+        "participantId": 7104
+      },
+      {
+        "label": "No",
+        "participantType": "player",
+        "participantId": 7104
+      }
+    ]
+  },
+  {
+    "id": 8013,
+    "type": "Over/Under",
+    "sport": "Soccer",
+    "leagueName": "Premiere League",
+    "leagueId": 1211,
+    "criterion": "Will the total score in the match be over or under 2.5?",
+    "outcomes": [
+      {
+        "label": "Over"
+      },
+      {
+        "label": "Under"
+      }
+    ]
   }
 ]
