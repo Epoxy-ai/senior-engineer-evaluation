@@ -31,7 +31,7 @@ The data that you'll be working with can be found in `./data`.
 
 ### bet-offer-messages
 
-`BetOffer`s represent change occurrences that customers can place a bet on. The `outcomes` array represents the possible outcomes that can be selected. For example, a customer could select either the "Over" outcome or "Under" outcome on a `BetOffer` of `type: "Over/Under"`. Note that some `BetOffer`s have outcomes related to a team or player, as indicated by the `participantType: "team"|"player"` property. Note that each `BetOffer` is relevant to only one `League` within a `Sport`.
+`BetOffer`s represent chance occurrences that customers can place a bet on. The `outcomes` array represents the possible outcomes that can be selected. For example, a customer could select either the "Over" outcome or "Under" outcome on a `BetOffer` of `type: "Over/Under"`. Note that some `BetOffer`s have outcomes related to a team or player, as indicated by the `participantType: "team"|"player"` property. Note that each `BetOffer` is relevant to only one `League` within a `Sport`.
 
 ### league-info
 
