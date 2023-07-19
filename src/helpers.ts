@@ -12,8 +12,9 @@ export const md5Hash = (str: string) => createHash('md5').update(str).digest("he
 export const getSqsMessages = (messages: typeof betOffersRaw) => {
   let storedMessages = messages
   return async (input: Partial<ReceiveMessageCommandInput>): Promise<Partial<ReceiveMessageCommandOutput>> => {
-    const messages = storedMessages.slice(0, input.MaxNumberOfMessages || 1)
-    storedMessages = storedMessages.slice(input.MaxNumberOfMessages || 1)
+    const maxNumberOfMessages = (input.MaxNumberOfMessages || 1) > 10 ? 10 : (input.MaxNumberOfMessages || 1)
+    const messages = storedMessages.slice(0, maxNumberOfMessages)
+    storedMessages = storedMessages.slice(maxNumberOfMessages)
 
     return {
       Messages: messages.map((msg: any, index: number) => ({

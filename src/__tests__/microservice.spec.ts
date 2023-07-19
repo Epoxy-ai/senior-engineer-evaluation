@@ -1,7 +1,7 @@
 import { mockClient } from 'aws-sdk-client-mock'
 import 'aws-sdk-client-mock-jest'
 import sinon from 'sinon'
-import { SQSClient, ReceiveMessageCommand, SendMessageCommand, SendMessageBatchCommand, SendMessageBatchCommandInput } from '@aws-sdk/client-sqs'
+import { SQSClient, ReceiveMessageCommand, SendMessageCommand, SendMessageBatchCommand, SendMessageBatchCommandInput, TooManyEntriesInBatchRequest } from '@aws-sdk/client-sqs'
 import { randomUUID } from 'crypto'
 import { expectedOutput, leagueInfoMap, playerInfoMap, teamInfoMap, betOfferMessages, getSqsMessages, md5Hash } from '../helpers'
 import { handler } from '../microservice'
@@ -52,6 +52,9 @@ describe('microservice', () => {
         QueueUrl: 'https://epoxy.ai/destinationqueue',
       })
       .callsFake(async (input: SendMessageBatchCommandInput) => {
+        if (input.Entries!.length > 10) {
+          throw new TooManyEntriesInBatchRequest({ $metadata: {}, message: 'The maximum number of messages in a batch is 10.' })
+        }
         return { Successful: (input.Entries || []).map(entry => ({ Id: entry.Id, MessageId: randomUUID(), MD5OfMessageBody: entry.MessageBody && md5Hash(entry.MessageBody) })) }
       })
   })
