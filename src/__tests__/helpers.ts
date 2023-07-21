@@ -3,6 +3,7 @@ import 'aws-sdk-client-mock-jest'
 import { GetQueueAttributesCommandOutput, OverLimit, ReceiveMessageCommandInput, ReceiveMessageCommandOutput } from '@aws-sdk/client-sqs'
 import { SQSClient, ReceiveMessageCommand, SendMessageCommand, SendMessageBatchCommand, SendMessageBatchCommandInput, TooManyEntriesInBatchRequest, EmptyBatchRequest, GetQueueAttributesCommand } from '@aws-sdk/client-sqs'
 import { createHash, randomUUID } from 'crypto'
+import { AxiosError } from 'axios'
 
 import leagueInfo from '../../data/league-info.json'
 import playerInfo from '../../data/player-info.json'
@@ -93,4 +94,18 @@ export const initializeMocks = function (this: any) {
 }
 
 export const resetMocks = function (this: any) {
+}
+
+export async function getMock (uri: string) {
+  const parts = uri.split('/')
+  const id = Number(parts[parts.length - 1])
+  if (uri.match(/sports.com\/league-info/)) {
+    return { data: leagueInfoMap }
+  } else if (uri.match(/sports.com\/player-info/)) {
+    return { data: playerInfoMap[id] }
+  } else if (uri.match(/sports.com\/team-info/)) {
+    return { data: teamInfoMap[id] }
+  } else {
+    throw new AxiosError('something went wrong')
+  }
 }

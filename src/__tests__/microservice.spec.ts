@@ -1,25 +1,13 @@
 import { ReceiveMessageCommand, SendMessageBatchCommand } from '@aws-sdk/client-sqs'
-import { initializeMocks, resetMocks, expectedOutput, leagueInfoMap, playerInfoMap, teamInfoMap } from './helpers'
-import axios, { Axios, AxiosError, AxiosRequestConfig } from "axios"
+import { initializeMocks, getMock, resetMocks, expectedOutput } from './helpers'
+import axios from "axios"
 import { handler } from '../microservice'
 
+// Mocked API Implementation
 jest.mock('axios')
 const mockedAxios = axios as jest.Mocked<typeof axios>
+mockedAxios.get = jest.fn().mockImplementation(getMock)
 
-// Mocked API Implementation
-mockedAxios.get = jest.fn().mockImplementation(async (uri: string) => {
-  const parts = uri.split('/')
-  const id = Number(parts[parts.length - 1])
-  if (uri.match(/sports.com\/league-info/)) {
-    return { data: leagueInfoMap }
-  } else if (uri.match(/sports.com\/player-info/)) {
-    return { data: playerInfoMap[id] }
-  } else if (uri.match(/sports.com\/team-info/)) {
-    return { data: teamInfoMap[id] }
-  } else {
-    throw new AxiosError('something went wrong')
-  }
-})
 
 describe('microservice', function (this: any) {
 
