@@ -42,11 +42,11 @@ Some useful documentation resources:
 
 1. Pull `BetOffer` messages from the source AWS SQS Queue by using the `aws-sdk` library. The source queue url is `https://epoxy.ai/sourcequeue`. Your implementation must ensure that there are no remaining messages on the queue.
 
-2. Filter the incoming `BetOffer` messages down to only leagues that are represented in the `league-info` data. This data can be fetched from the mock API with this url: `https://sports.com/league-info`. Please use the `axios` library for fetching. Details about the sample data structure are [here](#sample-json-data).
+2. Filter the incoming `BetOffer` messages down to only leagues that are represented in the `league-info` data. This data can be fetched from the mock API with this url: `https://sports.com/league-info`. Please use `axios.get` for fetching. Details about the sample data structure are [here](#sample-json-data).
 
-3. For all `BetOffer` messages that contain `outcomes` with `participantType: "team"`, fetch the team info data from the mock API `https://sports.com/team-info/{id}`. Attach this data to the outcome object on the field `participantInfo`. Please use the `axios` library for fetching. Details about the sample data structure are [here](#sample-json-data).
+3. For all `BetOffer` messages that contain `outcomes` with `participantType: "team"`, fetch the team info data from the mock API `https://sports.com/team-info/{id}`. Attach this data to the outcome object on the field `participantInfo`. Please use `axios.get` for fetching. Details about the sample data structure are [here](#sample-json-data).
 
-4. For all `BetOffer` messages that contain `outcomes` with `participantType: "player"`, fetch the player info data from the mock API `https://sports.com/player-info/{id}`. Attach this data to the outcome object on the field `participantInfo`. Please use the `axios` library for fetching. Details about the sample data structure are [here](#sample-json-data).
+4. For all `BetOffer` messages that contain `outcomes` with `participantType: "player"`, fetch the player info data from the mock API `https://sports.com/player-info/{id}`. Attach this data to the outcome object on the field `participantInfo`. Please use `axios.get` for fetching. Details about the sample data structure are [here](#sample-json-data).
 
 5. Publish the augmented `BetOffer` messages to the destination AWS SQS Queue using the minimum number of batch publishing operations, utilizing the `aws-sdk` library. The destination queue url is `https://epoxy.ai/destinationqueue`. The ordering of the published messages should match the order in which they were received.
 
