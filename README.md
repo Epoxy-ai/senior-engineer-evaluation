@@ -15,7 +15,7 @@ Before starting, please review the instructions carefully.
 * How you _approach_ a complex problem, and how you communicate your _thought process_ along the way.
 * Your demonstration of Node.js fundamentals and basic data structure manipulation.
 * Your ability to read and understand the documentation if a required library is new to you.
-* Your ability to make significant progress and discuss next steps, rather than 100% completion of the challenge.
+* Your ability to make progress and discuss next steps, rather than 100% completion of the challenge.
 
 # The Task
 
@@ -25,7 +25,7 @@ Your task is to implement a microservice function that can fetch, transform, and
 
 ## Getting Started
 
-You will need to set up the project and start the unit test suite running. The unit tests will invoke the `src/microservice.ts#handler` function as if it were a real microservice running in the cloud. The unit tests also establish mocks for the AWS SQS API, and the `axios` library. Complete these steps to get up and running:
+You will need to set up the project and start the unit test suite. The unit tests will invoke the `src/microservice.ts#handler` function as if it were a real microservice running in the cloud. The unit tests also establish mocks for the AWS SQS API, and the `axios` library. Complete these steps to get up and running:
 
 1. Clone this repo.
 2. Checkout a new branch called `{your_name}-solution`
@@ -44,9 +44,9 @@ Some useful documentation resources:
 
 2. Filter the incoming `BetOffer` messages down to only leagues that are represented in the `league-info` data. This data can be fetched from the mock API with this url: `https://sports.com/league-info`. Please use the `axios` library for fetching. Details about the sample data structure are [here](#sample-json-data).
 
-3. For all `BetOffer` messages that contain `outcomes` with `participantType: "team"`, fetch the team info data from the mock API `https://sports.com/team-info/{id}`. Attach this data to the outcome object on the field `participantInfo`. Please use the `axios` library for fetching. Details about the sample data structure are [here](#sample-json-data).
+3. Fetch team info data from the mock API `https://sports.com/team-info/{id}`. Augment every outcome where `participantType: "team"` with the fetched team info data by adding it to a property called `particpantInfo`. Please use the `axios` library for fetching. Details about the sample data structure are [here](#sample-json-data).
 
-4. For all `BetOffer` messages that contain `outcomes` with `participantType: "player"`, fetch the player info data from the mock API `https://sports.com/player-info/{id}`. Attach this data to the outcome object on the field `participantInfo`. Please use the `axios` library for fetching. Details about the sample data structure are [here](#sample-json-data).
+4. Fetch player info data from the mock API `https://sports.com/player-info/{id}`. Augment every outcome where `participantType: "player"` with the fetched player info data by adding it to a property called `particpantInfo`. Please use the `axios` library for fetching. Details about the sample data structure are [here](#sample-json-data).
 
 5. Publish the augmented `BetOffer` messages to the destination AWS SQS Queue using the minimum number of batch publishing operations, utilizing the `aws-sdk` library. The destination queue url is `https://epoxy.ai/destinationqueue`. The ordering of the published messages should match the order in which they were received.
 
