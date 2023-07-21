@@ -1,11 +1,7 @@
-import { mockClient } from 'aws-sdk-client-mock'
-import 'aws-sdk-client-mock-jest'
-import sinon from 'sinon'
-import { SQSClient, ReceiveMessageCommand, SendMessageCommand, SendMessageBatchCommand, SendMessageBatchCommandInput, TooManyEntriesInBatchRequest, EmptyBatchRequest } from '@aws-sdk/client-sqs'
-import { randomUUID } from 'crypto'
-import { expectedOutput, leagueInfoMap, playerInfoMap, teamInfoMap, betOfferMessages, getSqsMessages, md5Hash } from '../helpers'
+import { ReceiveMessageCommand, SendMessageBatchCommand } from '@aws-sdk/client-sqs'
+import { initializeMocks, resetMocks, expectedOutput, leagueInfoMap, playerInfoMap, teamInfoMap } from './helpers'
+import axios, { Axios, AxiosError, AxiosRequestConfig } from "axios"
 import { handler } from '../microservice'
-import axios, { AxiosError } from "axios"
 
 jest.mock('axios')
 const mockedAxios = axios as jest.Mocked<typeof axios>
@@ -25,46 +21,10 @@ mockedAxios.get = jest.fn().mockImplementation(async (uri: string) => {
   }
 })
 
+describe('microservice', function (this: any) {
 
-describe('microservice', () => {
-
-  beforeEach(function (this: any) {
-    // Mocked SQS Implementation
-    this.sqsMock = mockClient(SQSClient)
-    this.sqsMock
-      .on(ReceiveMessageCommand)
-      .rejects('AWS.SimpleQueueService.NonExistentQueue: The specified queue does not exist for this wsdl version.')
-      .on(ReceiveMessageCommand, {
-        QueueUrl: 'https://epoxy.ai/sourcequeue',
-      })
-      .callsFake(getSqsMessages(betOfferMessages))
-      .on(SendMessageCommand)
-      .rejects('AWS.SimpleQueueService.NonExistentQueue: The specified queue does not exist for this wsdl version.')
-      .on(SendMessageCommand, {
-        QueueUrl: 'https://epoxy.ai/destinationqueue',
-      })
-      .resolves({
-        MessageId: randomUUID()
-      })
-      .on(SendMessageBatchCommand)
-      .rejects('AWS.SimpleQueueService.NonExistentQueue: The specified queue does not exist for this wsdl version.')
-      .on(SendMessageBatchCommand, {
-        QueueUrl: 'https://epoxy.ai/destinationqueue',
-      })
-      .callsFake(async (input: SendMessageBatchCommandInput) => {
-        if (!input.Entries || input.Entries!.length === 0) {
-          throw new EmptyBatchRequest({ $metadata: {}, message: 'SendMessageBatchCommand: Received an empty BatchRequest.' })
-        }
-        if (input.Entries!.length > 10) {
-          throw new TooManyEntriesInBatchRequest({ $metadata: {}, message: 'SendMessageBatchCommand: The maximum number of messages in a batch is 10.' })
-        }
-        return { Successful: (input.Entries || []).map(entry => ({ Id: entry.Id, MessageId: randomUUID(), MD5OfMessageBody: entry.MessageBody && md5Hash(entry.MessageBody) })) }
-      })
-  })
-
-  afterEach(function (this: any) {
-    this.sqsMock.resetHistory()
-  })
+  beforeEach(initializeMocks)
+  afterEach(resetMocks)
 
   describe('handler', function (this: any) {
 
